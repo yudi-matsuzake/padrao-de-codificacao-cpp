@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
-
+\usepackage{url}
 %códigos
 \usepackage{minted}
 
@@ -46,7 +46,7 @@ Todo tipo de documentação deve ser mantida atualizada, tanto a da interface gr
 Em geral, todo arquivo .cc deve ter um arquivo de cabeçário\footnote{Do inglês, \emph{header}. São os arquivos .h, .hpp ou .H da linguagem c/c++.} .hpp\footnote{Mas nem todo .hpp tem um .cc associoado, como classes com templates totalmente genérico. Mas não recomendamos o uso dessa também, só em algumas exeções.} associoado. Tem algumas exceções, como pequenos .cc e/ou .cc contendo a função main. O uso correto desses arquivos pode fazer a diferença na leitura no tamanho e na performace do código.
 
 %PROTEÇÃO DE DEFINIÇÃO------------------------------------------------------
-\section{Proteção contra múltiplos \#includes}
+\subsection{Proteção contra múltiplos \#includes}
 
 Todo cabeçário deve ser protegido contra  múltiplos \#includes \footnote{Proteção feita por uma definição, para evitar múltiplas definições de estruturas e funções do cabeçário.}. Ou seja, todo cabeçário deve ter a seguinte estrutura ou algo parecido:
 
@@ -59,6 +59,29 @@ Todo cabeçário deve ser protegido contra  múltiplos \#includes \footnote{Prot
 
 #endif \\_MEU_CABECARIO_H_
 
+\end{code}
+
+\subsection{Nomes e ordem}
+Use a seguinte ordem padrão para melhorar a leitura do código e para evitar dependencias escondidas: Cabeçários relacionados, biblioteca padrão do c, biblioteca padrão do c++, outros .{h,hpp}, seus .{h,hpp}.
+
+Exemplo:
+\begin{code}
+#include "foo/server/fooserver.h" //relacionado
+
+#include <sys/types.h> //c
+#include <unistd.h> //c
+#include <hash_map> //c++
+#include <vector> //c++
+
+#include "base/basictypes.hpp" //.hpp do projeto
+#include "base/commandlineflags.hpp" //.hpp do projeto
+#include "foo/server/bar.hpp" //.hpp seu
+\end{code}
+
+Todos os cabeçários devem ser listadas decentemente no código do projeto sem o uso de atalhos do padrão UNIX, e.g., .\footnote{Autoreferência} e ..\footnote{Referência do diretório pai}. Por exemplo, o cabeçário life-change-project/src/base/logging.h deverá ser incluído como:
+
+\begin{code}
+#include "base/logging.h"
 \end{code}
 
 %OPCOES DO COMPILADOR--------------------------------------------------------
@@ -78,4 +101,23 @@ Quando definir uma função, a ordem dos parâmetros é: entradas, então saída
 
 Parâmetros de funções no c/c++ podem ser tanto entradas, quanto saídas (ou os dois!). Entradas são geralmente constantes\footnote{É uma boa prática, ajuda na leitura do código e faz parte da documentação definir entradas de funções como 'const' (constantes).} e saídas são poiteiros. 
 
+%CONVENÇÕES DE FORMATAÇÃO---------------------------------------------------
+\section{Convenções de formatação}
+\subsection{Tamanho da linha}
+É recomendado que a linha possua no máximo 80 caracteres (80 colunas).
+
+\subsection{Nomes}
+MACROS devem ser definidas TUDO\_EM\_MAIUSCULA, quando são macros simples. Alguns \emph{wrappers} eficientes para funções, podem ser definidos em letra minúscula. Outros nomes devem ser em letras minúsculas separados\_por\_underline. É comum também, utilizar \_t no final das estruturas, e.g. minha\_estrutura\_t.
+
+\subsection{Expressões}
+\begin{tabular}{ l c r }
+	{\bf Para} 			& {\bf Use...} 		& {\bf ...ao invés de...} \\
+	Negação lógica 			& !x 			& ! x \\
+	Complemento bitwise 		& \textasciitilde x 	& \textasciitilde{}  x \\
+	Menos unário			& -x			& - x \\
+	Cast				& (foo)x		& (foo) x \\
+	Referencia de um ponteiro	& *x			& * x \\
+\end{tabular}
+
 \end{document}
+

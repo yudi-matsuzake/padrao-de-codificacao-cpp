@@ -16,26 +16,35 @@
 \author{Gustavo Yudi Bientinezi Matsuzake}
 \maketitle
 
+%ambiente pra fazer sempre o mesmo código, se quiser mudar o visual do código no minted, mude aqui!!
+
+%CODE
+\newminted[code]{cpp}{linenos=true, mathescape, xleftmargin=1cm}
+%---------------------%
+
+%SOBRE ESSE DOCUMENTO------------------------------------------------------
+
 \section{Sobre este documento}
 
 Este \emph{padrão de codificação}\footnote{Do inglês, \emph{coding standard}.} foi inspirado nas normas e padrões de codificação do Google\copyright, do projeto GNU\textcopyleft e algumas preferências pessoais do autor. Essas organizações foram escolhidas porque representam uma parcela do mercado de software importante, e aderir os costumes e trejeitos de cada, pode ser de suma importância para garantir uma boa prática organizacional - uma vez que esses métodos sofreram diversos tipos de testes - e acolhida por um grande número de programadores no mundo todo.
 
 \section{Hello World!}
-\begin{minted}{c}
+
+\begin{code}
 int main() {
   printf("hello, world");
   return 0;
 }
-\end{minted}
+\end{code}
 
-\section{Math in Source Code Comments}
-\begin{minted}[mathescape,gobble=2]{csharp}
-  /*
-  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
-  of an $n$-sided regular polygon circumscribing a
-  circle of diameter $d$.
-  */
-  const double pi = 3.1415926535
-\end{minted}
+%\section{Math in Source Code Comments}
+%\begin{minted}[mathescape,gobble=2]{csharp}
+%  /*
+%  Defined as $\pi=\lim_{n\to\infty}\frac{P_n}{d}$ where $P$ is the perimeter
+%  of an $n$-sided regular polygon circumscribing a
+%  circle of diameter $d$.
+%  */
+%  const double pi = 3.1415926535
+%\end{minted}
 
 \end{document}

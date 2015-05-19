@@ -14,6 +14,7 @@
 %url
 \usepackage[hidelinks]{hyperref}
 
+
 \begin{document}
 
 \title{Padrão de Codificação para a Linguagem C++}
@@ -201,17 +202,14 @@ class myclass
 };
 \end{code}
 
-Quando definir uma classe:
+Quando definir uma classe (nessa ordem):
 
 \begin{itemize}
-\item Primeiro definir todos os tipos públicos;
-\item Então definir todos os não-públicos;
-\item Declarar todos os construtores públicos;
-\item Declarar todos os destruturoes públicos;
+\item Primeiro definir todos os tipos públicos depois os não-públicos;
+\item Então declarar todos os construtores públicos depois os destrutores públicos;
 \item Declarar todos os membros de função públicos;
 \item Declarar todos os membros de variáveis públicas;
-\item Declarar todos os construtores não-públicos;
-\item Declarar todos os destrutores não-públicos;
+\item Declarar todos os construtores não-públicos, então, destrutores não públicos;
 \item Declarar todos os não públicos membros de função e
 \item Declarar todos os não públicos membros de variáveis
 \end{itemize}

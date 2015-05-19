@@ -11,6 +11,8 @@
 \usepackage{url}
 %códigos
 \usepackage{minted}
+%url
+\usepackage[hidelinks]{hyperref}
 
 \begin{document}
 
@@ -27,7 +29,7 @@
 %SOBRE ESSE DOCUMENTO------------------------------------------------------
 \section{Sobre este documento}
 
-Este \emph{padrão de codificação}\footnote{Do inglês, \emph{coding standard}.} foi inspirado nas normas e padrões de codificação do Google\copyright, do projeto GNU\textcopyleft e algumas preferências pessoais do autor. Essas organizações foram escolhidas porque representam uma parcela do mercado de software importante, e aderir os costumes e trejeitos de cada, pode ser de suma importância para garantir uma boa prática organizacional - uma vez que esses métodos sofreram diversos tipos de testes - e acolhida por um grande número de programadores no mundo todo.
+Este\footnote{Disponível em \url{www.github.com/yudi-matsuzake/padrao-de-codificacao-cpp}} \emph{padrão de codificação}\footnote{Do inglês, \emph{coding standard}.} foi inspirado nas normas e padrões de codificação do Google\copyright, do projeto GNU\textcopyleft e algumas preferências pessoais do autor. Essas organizações foram escolhidas porque representam uma parcela do mercado de software importante, e aderir os costumes e trejeitos de cada, pode ser de suma importância para garantir uma boa prática organizacional - uma vez que esses métodos sofreram diversos tipos de testes - e acolhida por um grande número de programadores no mundo todo.
 
 %DOCUMENTAÇÃO--------------------------------------------------------------
 \section{Documentação}
@@ -39,6 +41,11 @@ Todo tipo de documentação deve ser mantida atualizada, tanto a da interface gr
 \item Todas as mudanças devem ser documentadas;
 \item Em geral, a documentação de todos os aspectos documentados, tanto front-end e back-end devem ser sempre atualizados, e sempre que houver a possibilidade, arrumar e corrigir erros de documentação para evitar gaps de documentação.
 \end{itemize}
+
+%C++
+\section{C++}
+
+C++ é uma linguagem complexa. Tendo isso em mente, primeiramente, seja sensato! Use a linguagens e seus benefícios para o bem, em boas formas. Se você usa a linguagem de forma usual, pense bem antes de usar, pessoas podem fazer a manutenção do seu código, então, priorize a legibilidade e a produtividade. Não estamos em uma competição de quem sabe mais "coisas loucas" sobre a essa linguagem.
 
 %ARQUIVOS DE CABEÇÁRIOS-----------------------------------------------------
 \section{Arquivos de cebeçário}
